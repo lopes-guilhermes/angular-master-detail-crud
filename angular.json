@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "financys": {
+    "finansys": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/financys",
+            "outputPath": "dist/finansys",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "financys:build"
+            "browserTarget": "finansys:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "financys:build:production"
+              "browserTarget": "finansys:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "financys:build"
+            "browserTarget": "finansys:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
         }
       }
     },
-    "financys-e2e": {
+    "finansys-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -120,11 +120,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "financys:serve"
+            "devServerTarget": "finansys:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "financys:serve:production"
+              "devServerTarget": "finansys:serve:production"
             }
           }
         },
@@ -140,5 +140,5 @@
       }
     }
   },
-  "defaultProject": "financys"
+  "defaultProject": "finansys"
 }
