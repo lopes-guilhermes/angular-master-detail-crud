@@ -1,8 +1,10 @@
 import { Injectable, Injector } from '@angular/core';
+
+import { Observable } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
+
 import { BaseResourceService } from '@shared/services/base-resource.service';
 import { CategoryService } from 'app/pages/categories/shared/category.service';
-import { Observable, throwError } from 'rxjs';
-import { catchError, flatMap, map } from 'rxjs/operators';
 import { Entry } from './entry.model';
 
 @Injectable({
@@ -18,24 +20,16 @@ export class EntryService extends BaseResourceService<Entry> {
     return this.categoryService.getById(entry.categoryId).pipe(
       flatMap(category => {
         entry.category = category;
-        return this.http.post(this.apiPath, entry).pipe(
-          catchError(this.handleError),
-          map(this.jsonDataToResource)
-        );
+        return super.create(entry);
       })
     );
   }
 
   update(entry: Entry): Observable<Entry> {
-    const url =  `${this.apiPath}/${entry.id}`;
-
     return this.categoryService.getById(entry.categoryId).pipe(
       flatMap(category => {
         entry.category = category;
-        return this.http.put(url, entry).pipe(
-          catchError(this.handleError),
-          map(() => entry)
-        );
+        return super.update(entry);
       })
     );
   }
